@@ -39,7 +39,7 @@ export default {
 </script>
 <style lang="scss">
 .slider-custom {
-  width: 80vw;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   background: #f3f7f9;
@@ -48,9 +48,9 @@ export default {
   .content {
     color: black;
     font-weight: 500;
-    font-size: 2.8vw;
+    font-size: 3vw;
     div {
-      min-height: 220px;
+      min-height: 250px;
       display: flex;
       align-items: center;
       justify-content: center;

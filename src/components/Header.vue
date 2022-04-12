@@ -24,7 +24,7 @@ export default {
 .header-custom {
   display: flex;
   justify-content: space-between;
-  width: 80vw;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 12px;
