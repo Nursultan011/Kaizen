@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Комментарии (3)</h1>
-    <div class="comment" v-for="comment in comments" :key="comment">
+    <div class="comment" v-for="(comment, id) in comments" :key="id">
       <div>
         <b>{{ comment.name }}</b>
         <span>{{ comment.date }}</span>

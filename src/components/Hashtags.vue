@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="hashtags">
-      <div class="hashtag" v-for="hashtag in hashtags" :key="hashtag">
+      <div class="hashtag" v-for="(hashtag, id) in hashtags" :key="id">
         <span>{{ hashtag.text }}</span>
       </div>
     </div>

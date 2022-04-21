@@ -1,10 +1,16 @@
 <template>
   <div>
-    <VueSlickCarousel class="slider-custom" :arrows="true" :dots="false">
-      <div class="content" v-for="slider in sliders" :key="slider.id">
-        <div>{{ slider.text }}</div>
-      </div>
-    </VueSlickCarousel>
+    <div v-if="$store.state.proposals.length > 0">
+      <VueSlickCarousel class="slider-custom" :arrows="true" :dots="false">
+        <div
+          class="content"
+          v-for="(slider, id) in $store.state.proposals"
+          :key="id"
+        >
+          <div>{{ slider.text }}</div>
+        </div>
+      </VueSlickCarousel>
+    </div>
   </div>
 </template>
 
@@ -12,29 +18,17 @@
 import VueSlickCarousel from "/node_modules/vue-slick-carousel";
 import "/node_modules/vue-slick-carousel/dist/vue-slick-carousel.css";
 import "/node_modules/vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import { mapActions } from "vuex";
 export default {
   name: "Slider",
   components: { VueSlickCarousel },
-  data: () => ({
-    sliders: [
-      {
-        id: 0,
-        text: "Поставить табличку над дверью Отдела Кадров в Офисе, чтобы все люди, впервые пришедшие в офис, знали, где именно находится Отдел Кадров",
-      },
-      {
-        id: 1,
-        text: "Запустить KAIZEN",
-      },
-      {
-        id: 2,
-        text: "Поставить табличку над дверью Отдела Кадров в Офисе, чтобы все люди, вепрвые пришедшие в офис, знали, где именно находится Отдел Кадров",
-      },
-      {
-        id: 3,
-        text: "Поставить табличку над дверью Отдела Кадров в Офисе, чтобы все люди, впервые пришедшие в офис, знали, где именно находится Отдел Кадров",
-      },
-    ],
-  }),
+  data: () => ({}),
+  methods: {
+    ...mapActions(["GET_PROPOSALS"]),
+  },
+  mounted() {
+    this.GET_PROPOSALS();
+  },
 };
 </script>
 <style lang="scss">
