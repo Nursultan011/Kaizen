@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
-
 Vue.use(Vuex);
+
+const baseURL = process.env.VUE_APP_BASE_URL;
 
 const store = new Vuex.Store({
   state: {
@@ -16,7 +17,7 @@ const store = new Vuex.Store({
   },
   actions: {
     GET_PROPOSALS({ commit }) {
-      return axios("http://185.116.193.192:8000/api/v1/proposals", {
+      return axios(baseURL + "/v1/proposals", {
         Method: "GET",
       })
         .then((proposals) => {
